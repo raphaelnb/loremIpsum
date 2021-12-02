@@ -7,7 +7,14 @@ function App() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('hello wolrd');
+        let amount = parseInt(count);
+        if(count <= 0) {
+            amount = 1
+        }
+        if (count > 8) {
+            amount = 8
+        }
+        setText(data.slice(0,amount))
     }
     return (
         <section className="section-center">
@@ -21,6 +28,11 @@ function App() {
                 />
                 <button type="submit" className="btn">generate</button>
             </form>
+            <article className="lorem-text">
+                {text.map((item, index) => {
+                    return <p key={index}>{item}</p>;
+                })}
+            </article>
         </section>
     );
 }
